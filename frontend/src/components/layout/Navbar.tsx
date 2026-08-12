@@ -16,7 +16,7 @@ export function Navbar() {
   }
 
   return (
-    <header className="flex h-14 items-center justify-between border-b border-zinc-200 bg-white px-4 dark:border-zinc-800 dark:bg-zinc-900">
+    <header className="flex h-14 items-center justify-between border-b border-zinc-200 bg-white px-4 dark:border-zinc-800 dark:bg-pagesbg">
       <div className="text-sm font-semibold lg:hidden">
         {process.env.NEXT_PUBLIC_APP_NAME ?? 'App'}
       </div>

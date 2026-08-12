@@ -8,6 +8,7 @@
   --border: #28232d;
   --card: #18141f;
   --surface: #110d17;
+  --pagesbg: #09050f;
 }
 
 @theme inline {
@@ -20,6 +21,7 @@
   --color-border: var(--border);
   --color-card: var(--card);
   --color-surface: var(--surface);
+  --color-pagesbg: var(--pagesbg);
 }
 
 @media (prefers-color-scheme: dark) {
