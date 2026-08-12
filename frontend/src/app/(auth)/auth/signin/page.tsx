@@ -61,19 +61,24 @@ export default function SignInPage() {
     }
   }
 
+  // i gotta figure out how to add a border around this, so im just gonna put a div around it all, and then make the border element
   return (
+    // <div className="border">
     <div className="space-y-6">
       <div className="space-y-1 text-center">
-        <h1 className="text-2xl font-bold tracking-tight">Sign in</h1>
-        <p className="text-sm text-zinc-500">Enter your credentials to continue</p>
+        <img src="/carico.ico" className="w-[56px] h-[56px] mx-auto"></img>
+        <div className='p-2 text-[15px] text-sm text-zinc-500 font-semibold'>Garage Boilerplate</div>
+        <h1 className="text-2xl font-bold tracking-tight">Welcome Back 👋</h1>
+        <div className='text-[15px] text-sm text-zinc-500 '>Sign in to continue to dashboard</div>
+        {/* <p className="text-sm text-zinc-500">Enter your credentials to continue</p> */}
       </div>
 
       <button
         type="button"
         onClick={handleGoogleSignIn}
-        className="flex w-full items-center justify-center gap-3 rounded-md border border-zinc-300 bg-white px-4 py-2.5 text-sm font-medium shadow-sm transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:hover:bg-zinc-800"
+        className="flex w-full items-center justify-center gap-3 rounded-md border-transparent bg-white px-4 py-2.5 text-sm font-medium shadow-sm transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-border dark:hover:bg-card"
       >
-        <svg className="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
+        {/* <svg className="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
           <path
             d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
             fill="#4285F4"
@@ -90,7 +95,7 @@ export default function SignInPage() {
             d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
             fill="#EA4335"
           />
-        </svg>
+        </svg> */}
         Continue with Google
       </button>
 
@@ -98,15 +103,15 @@ export default function SignInPage() {
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t border-zinc-200 dark:border-zinc-700" />
         </div>
-        <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-zinc-50 px-2 text-zinc-400 dark:bg-zinc-950">or</span>
+        <div className="relative flex justify-center text-xs lowercase">
+          <span className="bg-zinc-50 px-2 text-zinc-400 dark:bg-card">or</span>
         </div>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="space-y-1.5">
-          <label htmlFor="email" className="text-sm font-medium">
-            Email
+          <label htmlFor="email" className="text-sm font-medium text-[13px] text-zinc-500 block mb-2">
+            Email address
           </label>
           <input
             id="email"
@@ -114,7 +119,7 @@ export default function SignInPage() {
             autoComplete="email"
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? 'email-error' : undefined}
-            className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm shadow-sm placeholder:text-zinc-400 focus:ring-2 focus:ring-zinc-500 focus:outline-none aria-invalid:border-red-500 dark:border-zinc-700 dark:bg-zinc-900"
+            className="w-full rounded-md border border-zinc-300 bg-surface px-3 py-2 text-sm shadow-sm placeholder:text-zinc-400 focus:ring-2 focus:ring-zinc-500 focus:outline-none aria-invalid:border-red-500 dark:border-zinc-700 dark:bg-surface"
             placeholder="you@example.com"
             {...register('email')}
           />
@@ -127,7 +132,7 @@ export default function SignInPage() {
 
         <div className="space-y-1.5">
           <div className="flex items-center justify-between">
-            <label htmlFor="password" className="text-sm font-medium">
+            <label htmlFor="password" className="text-sm font-medium text-[13px] text-zinc-500 block mb-2">
               Password
             </label>
           </div>
@@ -137,7 +142,7 @@ export default function SignInPage() {
             autoComplete="current-password"
             aria-invalid={!!errors.password}
             aria-describedby={errors.password ? 'password-error' : undefined}
-            className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm shadow-sm placeholder:text-zinc-400 focus:ring-2 focus:ring-zinc-500 focus:outline-none aria-invalid:border-red-500 dark:border-zinc-700 dark:bg-zinc-900"
+            className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm shadow-sm placeholder:text-zinc-400 focus:ring-2 focus:ring-zinc-500 focus:outline-none aria-invalid:border-red-500 dark:border-zinc-700 dark:bg-surface"
             placeholder="••••••••"
             {...register('password')}
           />
@@ -148,12 +153,29 @@ export default function SignInPage() {
           )}
         </div>
 
+          {/* Here where to implement Remember me / fortget password */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="remember-me"
+              name="remember-me"
+              className="appearance-none w-4 h-4 border border-gray-500 rounded-md checked:bg-primary"
+            />
+            <label htmlFor="remember-me" className="text-sm font-medium text-[13px] text-zinc-500">
+              Remember me
+            </label>
+          </div>
+
+          <label className="text-[14px]"><a className="primary-color" href=''>Forgot Password?</a></label>
+        </div>
+
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full rounded-md bg-black px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+          className="w-full rounded-md bg-black px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-primary dark:text-white dark:hover:bg-primary-hover"
         >
-          {isSubmitting ? 'Signing in…' : 'Sign in'}
+          {isSubmitting ? 'Signing in…' : 'Sign in to Account'}
         </button>
       </form>
 
@@ -161,11 +183,12 @@ export default function SignInPage() {
         Don&apos;t have an account?{' '}
         <Link
           href="/auth/signup"
-          className="font-medium text-zinc-900 hover:underline dark:text-white"
+          className="font-medium text-zinc-900 hover:underline dark:text-white primary-color"
         >
-          Create one
+          Create one now
         </Link>
       </p>
+    {/* </div> */}
     </div>
   )
 }
