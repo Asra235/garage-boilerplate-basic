@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { requireAuth } from '@/actions/auth.actions'
-import { PageHeader } from '@/components/layout/PageHeader'
 import { getServerSession } from '@/actions/auth.actions'
 import { adminDb } from '@/lib/firebase/admin'
 import { team } from '../../../../public/team'
