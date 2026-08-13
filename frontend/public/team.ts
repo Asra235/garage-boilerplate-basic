@@ -1,4 +1,12 @@
-export const team = [
+type TeamMember = {
+  name: string;
+  role: string;
+  bio: string;
+  image: string;
+}
+
+
+export const team:TeamMember[] = [
   {
     name: 'Calvin Koh',
     role: 'UX Designer',
@@ -15,7 +23,7 @@ export const team = [
     name: 'Jonathan Fazzari',
     role: 'Developer',
     bio: 'Develops funky ui stuff, is also the dummy with the long bio, i guess this is where i waffle on until it breaches the normal size of the box. uhh, my favourite colour is green? what else can i talk about, my favourite food is lasagna. I need to waffle even more. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed euismod eros, luctus auctor erat. Mauris leo metus, tristique sit amet finibus sed, auctor non magna. Aliquam fermentum ac ex vel pulvinar. Pellentesque tempor pellentesque nibh, a vestibulum metus. Vivamus sed nisl blandit, feugiat tortor nec, vestibulum magna. ',
-    // image: '/images-hardcoded/placeholder.png',
+    image: '/images-hardcoded/placeholder.png',
   },
   {
     name: 'Finn Gurry',
@@ -27,6 +35,6 @@ export const team = [
     name: 'Bohan Chen',
     role: 'Business Analyst',
     bio: 'Does other stuff like analysing business',
-    // image: '/images-hardcoded/placeholder.png',
+    image: '/images-hardcoded/placeholder.png',
   },
 ] as const
