@@ -4,6 +4,7 @@ import { PageHeader } from '@/components/layout/PageHeader'
 import { getServerSession } from '@/actions/auth.actions'
 import { adminDb } from '@/lib/firebase/admin'
 import { team } from '../../../../public/team'
+import Image from 'next/image'
 
 export const metadata: Metadata = { title: 'Team' }
 
@@ -58,7 +59,7 @@ const displayName = profileSnap?.exists
 
         {team.map(({ name, role, bio, image }) => (
             <div key={name} className="text-center rounded-lg border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-card">
-            <img src={image || "/images-hardcoded/placeholder.png"} width="64" height="64" className="mx-auto"></img>
+            <Image src={image || "/images-hardcoded/placeholder.png"} width="64" height="64" className="mx-auto" alt={`A photo of ${image}`}></Image>
             <div className='pt-4'>
                 <h2 className="text-lg font-semibold">{name}</h2>
                 <p className="text-sm text-primary">{role}</p>
@@ -67,8 +68,8 @@ const displayName = profileSnap?.exists
             <hr className='border-border' />
             {/* socials */}
             <div className='pt-4 flex justify-center gap-2'>
-                <img src="/message.png" width="28" height="28"/>
-                <img src="/email.png" width="28" height="28"/>
+                <Image src="/message.png" width="28" height="28" alt={`Send ${name} a message`}/>
+                <Image src="/email.png" width="28" height="28" alt={`Send ${name} an email`}/>
             </div>
 
             </div>

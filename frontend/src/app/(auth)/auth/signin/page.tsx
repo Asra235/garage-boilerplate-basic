@@ -9,6 +9,7 @@ import { toast } from 'sonner'
 import { useAuth } from '@/hooks/useAuth'
 import { loginSchema, type LoginInput } from '@/lib/validations/auth'
 import { FullPageSpinner } from '@/components/shared/LoadingSpinner'
+import Image from 'next/image'
 
 export default function SignInPage() {
   const router = useRouter()
@@ -66,7 +67,7 @@ export default function SignInPage() {
     // <div className="border">
     <div className="space-y-6">
       <div className="space-y-1 text-center">
-        <img src="/carico.ico" className="w-[56px] h-[56px] mx-auto"></img>
+        <Image src="/carico.ico" className="w-[56px] h-[56px] mx-auto" width={56} height={56} alt="Log-in icon"></Image>
         <div className='p-2 text-[15px] text-sm text-zinc-500 font-semibold'>Garage Boilerplate</div>
         <h1 className="text-2xl font-bold tracking-tight">Welcome Back 👋</h1>
         <div className='text-[15px] text-sm text-zinc-500 '>Sign in to continue to dashboard</div>
